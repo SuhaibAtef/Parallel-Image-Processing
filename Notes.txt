@@ -1,0 +1,16 @@
+Resources I used
+
+Site to test out the outcome using filters:
+https://setosa.io/ev/image-kernels/
+
+Library Reference:
+http://cimg.eu/index.html
+
+Install ImageMagick Library:
+https://linuxhint.com/install-latest-image-magick-ubuntu-22-04/
+
+Gray Image Reference:
+https://obsessive-coffee-disorder.com/rgb-to-grayscale-using-cimg/
+
+Filters Reference:
+https://github.com/cosminstefanxp/MPI-Image-Processor/blob/master/filters.h
