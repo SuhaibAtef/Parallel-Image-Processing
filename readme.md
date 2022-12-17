@@ -29,22 +29,25 @@ We have an input **images** and a specific **filter** that we have to apply to t
 2. Clone the project.
 
 ```bash
-$ git clone repo-link
+$ git clone git@github.com:SuhaibAtef/Parallel-Image-Processing.git
 ```
 
 3. Open folder.
 
 ```bash
-$ cd repo-name/
+$ cd Parallel-Image-Processing/
 ```
 
 4. Allow execution permission
 
 ```bash
-$ chmod +x testing.sh
+$ chmod +x run.sh
 ```
-
-5. Run ./run.sh file.
+5. To check if the script got the execution permission
+```bash
+$ ls -lt
+```
+6. Run ./run.sh file.
 
 ```bash
 $ ./run.sh
