@@ -38,7 +38,7 @@ void *slave(void *arguments)
 {
     int threadId = (int)((arg_struct *)arguments)->threadID;
     int myid = (int)((arg_struct *)arguments)->processID;
-    // cout << threadId << endl;
+    cout << threadId << endl;
     for (int q = (threadId * image_res) / (threadNo); q < (threadId * (image_res / threadNo)) + (image_res / threadNo); q++)
     {
         for (int k = 0; k < image.width(); k++)
