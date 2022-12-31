@@ -31,7 +31,7 @@ float rightSobel[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
 float outline[3][3] = {{-1, -1, -1}, {-1, 8, -1}, {-1, -1, -1}};
 float sharpen[3][3] = {{0, -1, 0}, {-1, 5, -1}, {0, -1, 0}};
 
-int *filters[8] = {(int *)&topSobel, (int *)&bottomSobel, (int *)&emboss, (int *)&blur, (int *)&leftSobel, (int *)&rightSobel, (int *)&outline, (int *)&sharpen};
+int *filters[8] = {(int *)topSobel, (int *)bottomSobel, (int *)emboss, (int *)blur, (int *)leftSobel, (int *)rightSobel, (int *)outline, (int *)sharpen};
 string filtersName[8] = {"Top Sobel", "Bottom Sobel", "Emboss", "Blur", "Left Sobel", "Right Sobel", "Outline", "Sharpen"};
 
 void *slave(void *arguments)
@@ -53,6 +53,8 @@ void *slave(void *arguments)
                         if (myid == 0)
                         {
                             sum += ((int)bottomSobel[j - q + 1][i - k + 1] * ((int)data1[j][i]));
+                            cout << bottomSobel[j - q + 1][i - k + 1] << endl;
+                            cout << *(filters[1] + 3 * (j - q + 1) + (i - k + 1)) << endl;
                         }
                         else
                             sum += ((int)(emboss[j - q + 1][i - k + 1] * ((int)data1[j][i])));
