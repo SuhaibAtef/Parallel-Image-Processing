@@ -46,7 +46,6 @@ void *slave(void *arguments)
         for (int k = 0; k < image.width(); k++)
         {
             int sum = 0, sum2 = 0;
-            int sum3 = 0, sum4 = 0;
             for (int i = k - 1; i < k + 2; i++)
             {
                 for (int j = q - 1; j < q + 2; j++)
@@ -54,19 +53,9 @@ void *slave(void *arguments)
                     if ((i >= 0 && i <= image.width()) && (j >= 0 && j <= image.height()))
                     {
 
-                        // for (int i =0; i < 4; i++) {
-                        //     if (myid == i) {
-                        //     sum += (filters[i * 2][j - q + 1][i - k + 1] * ((int)data1[j][i]));
-                        //     sum2 += (filters[i * 2 +1][j - q + 1][i - k + 1] * ((int)data1[j][i]));
-
-                        //     }
-                        // }
-
                         if (myid == 0)
                         {
                             sum += ((int)topSobel[j - q + 1][i - k + 1] * ((int)data1[j][i]));
-                            // cout << bottomSobel[j - q + 1][i - k + 1] << endl;
-                            // cout << *(filters[1] + 3 * (j - q + 1) + (i - k + 1)) << endl;
                             sum2 += ((int)bottomSobel[j - q + 1][i - k + 1] * ((int)data1[j][i]));
                         }
                         else if (myid == 1)
@@ -86,8 +75,6 @@ void *slave(void *arguments)
 
                             sum2 += ((int)sharpen[j - q + 1][i - k + 1] * ((int)data1[j][i]));
                         }
-
-                        // cout << (int)(windows[j - q + 1][i - k + 1] * ((int)gray(i, j, 0, 0))) << " +";
                     }
                 }
             }

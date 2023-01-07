@@ -18,9 +18,11 @@ struct arg_struct
 
 // images
 CImg<unsigned char> image("house.tiff"), gray(image.width(), image.height(), 1, 1, 0), temp(image.width(), image.height(), 1, 1, 0);
+
 // data
 int data1[image_res][image_res];
 int data2[image_res][image_res];
+
 // windows
 float topSobel[3][3] = {{1, 2, 1}, {0, 0, 0}, {-1, -2, -1}};
 float bottomSobel[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
@@ -38,7 +40,7 @@ void *slave(void *arguments)
 {
     int threadId = (int)((arg_struct *)arguments)->threadID;
     int myid = (int)((arg_struct *)arguments)->processID;
-    // cout << threadId << endl;
+    // cout << myid << endl;
     for (int q = (threadId * image_res) / (threadNo); q < (threadId * (image_res / threadNo)) + (image_res / threadNo); q++)
     {
         for (int k = 0; k < image.width(); k++)
@@ -59,7 +61,6 @@ void *slave(void *arguments)
                     }
                 }
             }
-            // cout << sum << endl;
             data2[q][k] = sum;
         }
     }
