@@ -53,13 +53,9 @@ void *slave(void *arguments)
                         if (myid == 0)
                         {
                             sum += ((int)bottomSobel[j - q + 1][i - k + 1] * ((int)data1[j][i]));
-                            cout << bottomSobel[j - q + 1][i - k + 1] << endl;
-                            cout << *(filters[1] + 3 * (j - q + 1) + (i - k + 1)) << endl;
                         }
                         else
                             sum += ((int)(emboss[j - q + 1][i - k + 1] * ((int)data1[j][i])));
-
-                        // cout << (int)(windows[j - q + 1][i - k + 1] * ((int)gray(i, j, 0, 0))) << " +";
                     }
                 }
             }
