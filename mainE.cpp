@@ -72,7 +72,7 @@ void *slave(void *arguments)
                         else if (myid == 1)
                         {
                             sum += ((int)(emboss[j - q + 1][i - k + 1] * ((int)data1[j][i])));
-                            sum2 += ((int)blur[j - q + 1][i - k + 1] * ((int)data1[j][i]));
+                            sum2 += (int)(blur[j - q + 1][i - k + 1] * ((int)data1[j][i]));
                         }
                         else if (myid == 2)
                         {
@@ -169,6 +169,10 @@ int main(int argc, char **argv)
             while (!draw_disptemp1.is_closed())
             {
                 draw_disptemp1.wait();
+            }
+            while (!draw_disptemp2.is_closed())
+            {
+                draw_disptemp2.wait();
             }
         }
     }
